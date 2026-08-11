@@ -50,6 +50,90 @@
     location.reload();
   }
 
+  /* ============ Demo mode (for documentation & preview) ============ */
+  function demoEnabled() {
+    return /[?&]demo\b/.test(location.search);
+  }
+  function stepParam() {
+    var m = location.search.match(/[?&]step=(\d)/);
+    return m ? parseInt(m[1], 10) : null;
+  }
+  function fillDemo() {
+    STATE.p.fullName = 'Juan Dela Cruz';
+    STATE.p.position = 'Customer Service Staff';
+    STATE.p.dob = '02/14/2000';
+    STATE.p.age = '25';
+    STATE.p.sex = 'Male';
+    STATE.p.civilStatus = 'Single';
+    STATE.p.religion = 'Roman Catholic';
+    STATE.p.address = '123 Mabini St., Cebu City';
+    STATE.p.mobile = '0917 123 4567';
+    STATE.p.email = 'juan.delacruz@email.com';
+    STATE.p.emergencyName = 'Maria Dela Cruz';
+    STATE.p.emergencyRel = 'Mother';
+    STATE.p.emergencyNum = '0917 555 4444';
+    STATE.p.interviewDate = ASSESS.now();
+    STATE.p.interviewer = 'Ms. Ana Santos';
+
+    STATE.family = [];
+    ASSESS.familyDefaults.forEach(function (f) {
+      STATE.family.push({
+        relation: f.relation,
+        name: 'Sample ' + f.relation,
+        age: String(28 + STATE.family.length),
+        occupation: f.role === 'father' ? 'Self-Employed' : (f.role === 'mother' ? 'Housewife' : (f.role === 'spouse' ? 'Accountant' : 'Student')),
+        gender: f.role === 'mother' ? 'Female' : 'Male'
+      });
+    });
+
+    STATE.qa.forEach(function (qa, i) {
+      var sample = [
+        'I am a hardworking and friendly person who enjoys helping others.',
+        'I am looking for better career growth and stability.',
+        'I have strong communication skills and a service-oriented attitude.',
+        'I know the company values quality service and customer satisfaction.',
+        'The company offers a positive work environment and growth opportunities.',
+        'I can be too detailed at times and want to finish tasks perfectly.',
+        'My strengths are patience, teamwork, and a willingness to learn.',
+        'I led a school project that improved our team\u2019s turnaround time.',
+        'I enjoy a supportive team and meaningful work.',
+        'My ideal job allows me to serve people and grow professionally.',
+        'There is limited room for growth in my present role.',
+        'Yes, but I am ready for the next step in my career.',
+        'I stay calm, prioritize tasks, and ask for help when needed.',
+        'Currently earning below the market rate.',
+        'I expect a competitive salary based on the company\u2019s scale.',
+        'No current offers, but I am open to opportunities.',
+        'I can start as soon as needed.',
+        'I prefer to avoid unproductive meetings.',
+        'I have received several service excellence recognitions.',
+        'Faith, family, and personal growth.'
+      ];
+      qa.a = sample[i] || 'Sample answer.';
+    });
+    STATE.comments = 'The applicant presented herself well and answered questions clearly. Good attitude and willingness to learn.';
+    STATE.suggestions = 'Consider for a follow-up interview. Verify references and work history.';
+
+    ASSESS.temperament.forEach(function (t) {
+      var pick = t.key === 'choleric' ? 11 : t.key === 'sanguine' ? 8 : t.key === 'melancholic' ? 9 : 7;
+      STATE.temp[t.key] = t.words.slice(0, pick);
+    });
+
+    ASSESS.eqScales.forEach(function (sc, si) {
+      var arr = [];
+      sc.questions.forEach(function (q, qi) {
+        var v;
+        if (si === 0) v = [1, 5, 1, 5, 4, 1, 2, 2, 1][qi];
+        else if (si === 1) v = [1, 5, 4, 5, 5, 2, 1, 2, 5][qi];
+        else if (si === 2) v = [1, 5, 5, 1, 5, 1, 1, 2, 1][qi];
+        else if (si === 3) v = [2, 2, 1, 5, 5, 1, 4, 2, 4][qi];
+        else v = [1, 4, 5, 5, 5, 5, 1, 4, 1][qi];
+        arr.push(v);
+      });
+      STATE.eq[sc.key] = arr;
+    });
+  }
+
   window.STATE = STATE;
 
   /* ============ Helpers ============ */
@@ -462,6 +546,7 @@
   /* ============ Init ============ */
   function init() {
     Object.assign(STATE, load());
+    if (demoEnabled()) fillDemo();
     addFamilyDatalist();
     bindPersonal();
     renderFamily();
@@ -470,7 +555,8 @@
     renderTemperament();
     renderEQ();
     bindNav();
-    goTo(0);
+    var s = stepParam();
+    goTo(s === null ? 0 : s);
     save();
   }
 

@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Manual - Applicant Assessment System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<div class="page cover">
+  <div class="band">
+    <div class="logo">A</div>
+    <div class="kicker">User Manual</div>
+    <h1>Applicant Assessment System</h1>
+    <div class="sub">A step-by-step guide for interviewers and HR staff</div>
+    <div class="meta">
+      <b>Version:</b> 1.0<br>
+      <b>Applies to:</b> Applicant Assessment System v1.0<br>
+      <b>Date:</b> August 2026<br>
+      <b>Prepared by:</b> Human Resources Development
+    </div>
+  </div>
+  <div class="foot">CONFIDENTIAL &mdash; Internal Use Only</div>
+</div>
+
+<!-- ================= DOC CONTROL / TOC ================= -->
+<div class="page">
+  <div class="doc-title">Document Control</div>
+  <div class="doc-desc">Revision history for this user manual.</div>
+  <table>
+    <tr><th style="width:20%">Version</th><th style="width:25%">Date</th><th>Description</th><th style="width:25%">Author</th></tr>
+    <tr><td>1.0</td><td>August 2026</td><td>Initial user manual for the Applicant Assessment System.</td><td>HR Development</td></tr>
+  </table>
+
+  <div class="sec-head">Table of Contents</div>
+  <div class="toc">
+    <div class="row"><span><b>1</b>Introduction</span><span>3</span></div>
+    <div class="row"><span><b>2</b>System Requirements</span><span>3</span></div>
+    <div class="row"><span><b>3</b>Getting Started</span><span>4</span></div>
+    <div class="row"><span><b>4</b>Step 1 &mdash; Applicant Details</span><span>5</span></div>
+    <div class="row"><span><b>5</b>Step 2 &mdash; Family Background</span><span>6</span></div>
+    <div class="row"><span><b>6</b>Step 3 &mdash; Interview Questionnaire</span><span>7</span></div>
+    <div class="row"><span><b>7</b>Step 4 &mdash; Temperament Test</span><span>8</span></div>
+    <div class="row"><span><b>8</b>Step 5 &mdash; Emotional Intelligence Test</span><span>9</span></div>
+    <div class="row"><span><b>9</b>Step 6 &mdash; Review &amp; Report Download</span><span>10</span></div>
+    <div class="row"><span><b>10</b>Managing Assessments</span><span>12</span></div>
+    <div class="row"><span><b>11</b>Troubleshooting &amp; FAQ</span><span>13</span></div>
+  </div>
+</div>
+
+<!-- ================= 1. INTRODUCTION ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">1</span>Introduction</div>
+  <p>
+    The <b>Applicant Assessment System</b> is a web application that replaces the paper-based staff applicant
+    evaluation process. It combines all assessment instruments into one guided, interactive workflow and
+    automatically generates a professional PDF report at the end.
+  </p>
+  <p>The system covers five assessment instruments:</p>
+  <table>
+    <tr><th>Instrument</th><th>What it captures</th></tr>
+    <tr><td>Personal Information Sheet</td><td>Basic personal, contact, and emergency details.</td></tr>
+    <tr><td>Family Background</td><td>Household members and their information.</td></tr>
+    <tr><td>Applicant Questionnaire</td><td>Answers to 20 structured interview questions.</td></tr>
+    <tr><td>Temperament Test</td><td>Descriptor words selected across four temperament types.</td></tr>
+    <tr><td>Emotional Intelligence Test</td><td>45 items across five EQ composite scales.</td></tr>
+  </table>
+  <div class="callout"><b>Who uses this manual:</b> Interviewers, HR assistants, and any staff member who conducts or records applicant assessments.</div>
+</div>
+
+<!-- ================= 2. REQUIREMENTS ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">2</span>System Requirements</div>
+  <h2>2.1 Hardware &amp; Software</h2>
+  <table>
+    <tr><th>Requirement</th><th>Minimum</th></tr>
+    <tr><td>Computer</td><td>Desktop or laptop computer (works on tablets with a keyboard)</td></tr>
+    <tr><td>Operating System</td><td>Windows, macOS, or Linux</td></tr>
+    <tr><td>Browser</td><td>Current version of Google Chrome, Microsoft Edge, Mozilla Firefox, or Safari</td></tr>
+    <tr><td>Internet</td><td>Not required after the app has loaded once (libraries are bundled locally)</td></tr>
+    <tr><td>Printer (optional)</td><td>Any printer for printing the report</td></tr>
+  </table>
+  <h2>2.2 Getting the Application</h2>
+  <ol>
+    <li>Copy the entire application folder to the computer (e.g., USB drive, shared drive, or desktop).</li>
+    <li>Keep the folder structure intact &mdash; do not move <code>index.html</code>, <code>css/</code>, <code>js/</code>, or <code>lib/</code> out of place.</li>
+  </ol>
+  <div class="callout gold"><b>Tip:</b> Because all data is saved in the browser, the same computer should be used to continue a draft assessment.</div>
+</div>
+
+<!-- ================= 3. GETTING STARTED ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">3</span>Getting Started</div>
+  <h2>3.1 Opening the Application</h2>
+  <ol>
+    <li>Locate the file <b>index.html</b> in the application folder.</li>
+    <li>Double-click it to open in your default web browser.</li>
+    <li>The application loads immediately with the <b>Applicant Details</b> step shown.</li>
+  </ol>
+  <h2>3.2 The Interface</h2>
+  <ul>
+    <li><b>Sidebar (left):</b> lists the six steps. Click any step to jump to it. Completed steps are highlighted.</li>
+    <li><b>Progress bar (top):</b> shows how far you are through the assessment.</li>
+    <li><b>New button (top right):</b> clears the current data and starts a fresh assessment.</li>
+    <li><b>Next / Back buttons:</b> move between steps.</li>
+  </ul>
+  <figure>
+    <img src="img/step-0.png" alt="Applicant Details step">
+    <figcaption>Figure 1. The main interface with the sidebar, progress bar, and Step 1 (Applicant Details).</figcaption>
+  </figure>
+</div>
+
+<!-- ================= 4. STEP 1 ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">4</span>Step 1 &mdash; Applicant Details</div>
+  <ol>
+    <li><b>Full Name</b> and <b>Position Applied For</b> are required fields.</li>
+    <li>Enter the remaining personal details: date of birth, age, sex, civil status, religion, address, mobile number, and e-mail address.</li>
+    <li>For <b>Sex</b> and <b>Civil Status</b>, click the appropriate pill button.</li>
+    <li>Enter the <b>Emergency Contact</b> information.</li>
+    <li>Set the <b>Date of Interview</b> (defaults to today) and the <b>Interviewer</b> name.</li>
+    <li>Click <b>Next: Family Background</b>.</li>
+  </ol>
+  <div class="callout"><b>Tip:</b> If you enter a date of birth in MM/DD/YYYY format and leave Age blank, the age is computed automatically.</div>
+  <figure>
+    <img src="img/step-0.png" alt="Applicant Details form">
+    <figcaption>Figure 2. Step 1 &mdash; Applicant Details.</figcaption>
+  </figure>
+</div>
+
+<!-- ================= 5. STEP 2 ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">5</span>Step 2 &mdash; Family Background</div>
+  <ol>
+    <li>A default table lists father, mother, siblings, spouse or live-in partner, and children.</li>
+    <li>Type each member&rsquo;s name, age, occupation / year / grade, and select the gender.</li>
+    <li>Use <b>+ Add Family Member</b> to insert extra rows for more than 2 siblings or children.</li>
+    <li>Remove unwanted rows with the <b>&times;</b> button.</li>
+  </ol>
+  <figure>
+    <img src="img/step-1.png" alt="Family Background step">
+    <figcaption>Figure 3. Step 2 &mdash; Family Background table.</figcaption>
+  </figure>
+</div>
+
+<!-- ================= 6. STEP 3 ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">6</span>Step 3 &mdash; Interview Questionnaire</div>
+  <ol>
+    <li>Read each of the 20 questions aloud and type the applicant&rsquo;s answer in the text box below it.</li>
+    <li>Record optional <b>Comments</b> and <b>Suggestions</b> for the HR review at the bottom of the page.</li>
+    <li>Questions may be left blank if the interviewer prefers; they will appear as &ldquo;No answer recorded&rdquo; in the report.</li>
+  </ol>
+  <figure>
+    <img src="img/step-2.png" alt="Interview Questionnaire step">
+    <figcaption>Figure 4. Step 3 &mdash; Applicant Questionnaire with comments and suggestions.</figcaption>
+  </figure>
+</div>
+
+<!-- ================= 7. STEP 4 ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">7</span>Step 4 &mdash; Temperament Test</div>
+  <ol>
+    <li>Four cards are shown: <b>Choleric, Sanguine, Melancholic, and Phlegmatic</b>, with 20 descriptor words each.</li>
+    <li>Click every word that best describes the applicant. Click again to deselect.</li>
+    <li>The count at the top of each card updates live.</li>
+    <li>The highest-scoring card is highlighted and labelled <b>&#9733; DOMINANT</b>.</li>
+  </ol>
+  <div class="callout"><b>Interpretation:</b> Scores of 15&ndash;20 are <i>Strong</i>, 10&ndash;14 <i>Moderate</i>, 5&ndash;9 <i>Mild</i>, and 0&ndash;4 <i>Minimal</i>. Each person is a blend of all four types; the dominant type shows natural strengths and tendencies.</div>
+  <figure>
+    <img src="img/step-3.png" alt="Temperament Test step">
+    <figcaption>Figure 5. Step 4 &mdash; Temperament Test word checklist.</figcaption>
+  </figure>
+</div>
+
+<!-- ================= 8. STEP 5 ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">8</span>Step 5 &mdash; Emotional Intelligence Test</div>
+  <ol>
+    <li>Five composite scales are presented in order: Interpersonal Skills, Self-Actualization, Social Responsibility, Impulse Control, and Reality Testing.</li>
+    <li>For each of the 45 statements, select one response:
+      <b>5</b> Strongly Disagree &middot; <b>4</b> Somewhat Disagree &middot; <b>3</b> No Opinion &middot;
+      <b>2</b> Somewhat Agree &middot; <b>1</b> Strongly Agree.</li>
+    <li>Click a selected response again to clear it.</li>
+    <li>Each scale&rsquo;s header shows a <b>live score</b> and interpretation as items are answered.</li>
+  </ol>
+  <div class="callout"><b>Scoring bands (per scale, max 45):</b> 0&ndash;15 EXCELLENT (Effectively Functioning) &middot; 16&ndash;30 GOOD (Functioning) &middot; 31&ndash;45 POOR (Needs Improvement). Lower totals mean stronger emotional functioning.</div>
+  <figure>
+    <img src="img/step-4.png" alt="Emotional Intelligence Test step">
+    <figcaption>Figure 6. Step 5 &mdash; Emotional Intelligence Test (45 items across 5 scales).</figcaption>
+  </figure>
+</div>
+
+<!-- ================= 9. STEP 6 ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">9</span>Step 6 &mdash; Review &amp; Report Download</div>
+  <h2>9.1 Reviewing the Summary</h2>
+  <p>
+    The summary shows the dominant temperament, the overall Emotional Intelligence rating, the number of
+    interview questions answered, and the number of family members listed. Warnings are displayed for any
+    incomplete sections &mdash; these do not block report generation.
+  </p>
+  <figure>
+    <img src="img/step-5.png" alt="Review and Download step">
+    <figcaption>Figure 7. Step 6 &mdash; Assessment summary and report actions.</figcaption>
+  </figure>
+
+  <h2>9.2 Downloading the PDF Report</h2>
+  <ol>
+    <li>Click <b>&#11015; Download PDF Report</b>.</li>
+    <li>Wait while the system renders each A4 page (a progress indicator appears on the button).</li>
+    <li>The file <i>&ldquo;&lt;Applicant Name&gt; &ndash; Assessment Report.pdf&rdquo;</i> is saved to the browser&rsquo;s download folder.</li>
+  </ol>
+  <p>The report includes: cover summary, personal information, family background, the full interview transcript,
+  temperament results with a dominant-type callout, EQ scores per scale with ratings, the overall EQ rating,
+  and signature lines for the interviewer and HR.</p>
+  <figure>
+    <img src="img/report.png" alt="Generated report cover page">
+    <figcaption>Figure 8. First page of the generated PDF report.</figcaption>
+  </figure>
+</div>
+
+<!-- ================= 10. MANAGING ASSESSMENTS ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">10</span>Managing Assessments</div>
+
+  <h2>10.1 Auto-Save</h2>
+  <p>
+    All entries are saved automatically in the browser&rsquo;s local storage as you type. If the page is
+    refreshed or the tab is closed accidentally, reopen <b>index.html</b> and the previous data is restored.
+  </p>
+
+  <h2>10.2 Starting a New Assessment</h2>
+  <ol>
+    <li>Click the <b>New</b> button at the top right.</li>
+    <li>Confirm when prompted. All stored data for the current assessment is permanently removed.</li>
+  </ol>
+  <div class="callout gold"><b>Important:</b> Always download the PDF report before starting a new assessment, because the <b>New</b> action deletes the stored data.</div>
+
+  <h2>10.3 Printing the Report</h2>
+  <ol>
+    <li>Click <b>Print</b> on the Review page (Step 6).</li>
+    <li>In the print dialog, choose the destination (printer or &ldquo;Save as PDF&rdquo;).</li>
+    <li>The report is printed in A4 portrait layout.</li>
+  </ol>
+
+  <h2>10.4 Moving Data to Another Computer</h2>
+  <p>
+    Data is stored per browser and per computer. To continue on another device, download the PDF report and
+    store it in the applicant&rsquo;s personnel file; re-enter data on the new device if a draft must continue.
+  </p>
+</div>
+
+<!-- ================= 11. TROUBLESHOOTING ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">11</span>Troubleshooting &amp; FAQ</div>
+
+  <table>
+    <tr><th style="width:34%">Question / Problem</th><th>Solution</th></tr>
+    <tr>
+      <td>The page does not open or shows a blank screen.</td>
+      <td>Open <code>index.html</code> with a supported browser (Chrome, Edge, Firefox, Safari). Make sure the <code>lib/</code>, <code>css/</code>, and <code>js/</code> folders are alongside it.</td>
+    </tr>
+    <tr>
+      <td>The PDF does not download.</td>
+      <td>Check the browser&rsquo;s download settings and pop-up blocker. Try the <b>Print</b> button and choose &ldquo;Save as PDF&rdquo; instead.</td>
+    </tr>
+    <tr>
+      <td>My progress is gone after reopening the app.</td>
+      <td>Data is stored in the browser that last used it. Reopen the app in the same browser and computer. Clear browser history/site data deletes saved assessments.</td>
+    </tr>
+    <tr>
+      <td>How do I view a sample assessment?</td>
+      <td>Append <code>?demo</code> to the page URL (e.g., <code>index.html?demo</code>) to load a filled sample. Use <code>?demo&step=4</code> to jump directly to a step.</td>
+    </tr>
+    <tr>
+      <td>Can I leave some questions unanswered?</td>
+      <td>Yes. The report still generates; unanswered items are marked &ldquo;Not completed&rdquo; and warnings are shown on the Review page.</td>
+    </tr>
+    <tr>
+      <td>How are temperament and EQ scores computed?</td>
+      <td>Temperament counts selected words per type (highest = dominant). EQ sums each scale&rsquo;s 9 responses (1&ndash;5) and maps them to the EXCELLENT / GOOD / POOR bands.</td>
+    </tr>
+    <tr>
+      <td>Is an internet connection required?</td>
+      <td>No. All scripts are bundled locally. Load the page once with any browser, and it works offline afterward.</td>
+    </tr>
+  </table>
+
+  <div class="callout"><b>Still having trouble?</b> Contact the HR Development team with a description of the problem, the browser used, and a screenshot of any error message.</div>
+</div>
+
+</body>
+</html>
+

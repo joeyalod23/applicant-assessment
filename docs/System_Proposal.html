@@ -1,0 +1,369 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>System Proposal - Applicant Assessment System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<div class="page cover">
+  <div class="band">
+    <div class="logo">A</div>
+    <div class="kicker">System Proposal</div>
+    <h1>Applicant Assessment System</h1>
+    <div class="sub">Interactive applicant evaluation platform with automated PDF report generation</div>
+    <div class="meta">
+      <b>Version:</b> 1.0<br>
+      <b>Date:</b> August 2026<br>
+      <b>Prepared by:</b> Human Resources Development<br>
+      <b>Status:</b> Proposed &mdash; For Review
+    </div>
+  </div>
+  <div class="foot">CONFIDENTIAL &mdash; Internal Use Only</div>
+</div>
+
+<!-- ================= DOC CONTROL / TOC ================= -->
+<div class="page">
+  <div class="doc-title">Document Control</div>
+  <div class="doc-desc">Revision history and approval record for this proposal.</div>
+  <table>
+    <tr><th style="width:20%">Version</th><th style="width:25%">Date</th><th>Description</th><th style="width:25%">Author</th></tr>
+    <tr><td>1.0</td><td>August 2026</td><td>Initial system proposal for the interactive Applicant Assessment System.</td><td>HR Development</td></tr>
+  </table>
+
+  <table>
+    <tr><th style="width:30%">Approval</th><th style="width:20%">Name</th><th style="width:20%">Signature</th><th>Date</th></tr>
+    <tr><td>Prepared by</td><td>______________________</td><td>______________________</td><td>____________</td></tr>
+    <tr><td>Reviewed by</td><td>______________________</td><td>______________________</td><td>____________</td></tr>
+    <tr><td>Approved by</td><td>______________________</td><td>______________________</td><td>____________</td></tr>
+  </table>
+
+  <div class="sec-head">Table of Contents</div>
+  <div class="toc">
+    <div class="row"><span><b>1</b>Executive Summary</span><span>3</span></div>
+    <div class="row"><span><b>2</b>Background &amp; Rationale</span><span>3</span></div>
+    <div class="row"><span><b>3</b>Objectives</span><span>4</span></div>
+    <div class="row"><span><b>4</b>Scope</span><span>4</span></div>
+    <div class="row"><span><b>5</b>Functional Modules</span><span>5</span></div>
+    <div class="row"><span><b>6</b>Scoring Methodology</span><span>7</span></div>
+    <div class="row"><span><b>7</b>Technology &amp; Architecture</span><span>8</span></div>
+    <div class="row"><span><b>8</b>System Workflow</span><span>9</span></div>
+    <div class="row"><span><b>9</b>Data Storage &amp; Privacy</span><span>10</span></div>
+    <div class="row"><span><b>10</b>Benefits</span><span>10</span></div>
+    <div class="row"><span><b>11</b>Limitations &amp; Future Enhancements</span><span>11</span></div>
+    <div class="row"><span><b>12</b>Appendix &mdash; File Structure</span><span>12</span></div>
+  </div>
+</div>
+
+<!-- ================= 1. EXECUTIVE SUMMARY ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">1</span>Executive Summary</div>
+  <p>
+    The <b>Applicant Assessment System</b> is a web-based platform that digitizes and streamlines the
+    company&rsquo;s staff applicant evaluation process. It consolidates all existing paper-based assessment
+    instruments &mdash; the Personal Information Sheet, Family Background form, Applicant Questionnaire,
+    Temperament Test, and Emotional Intelligence Test &mdash; into a single interactive application.
+  </p>
+  <p>
+    Interviewers complete the assessment through a guided six-step wizard. Upon completion, the system
+    automatically computes temperament and emotional intelligence scores, summarizes the results, and
+    generates a professionally formatted <b>PDF report</b> that can be downloaded or printed and attached to the
+    applicant&rsquo;s personnel file.
+  </p>
+  <div class="callout">
+    <b>Key outcome:</b> Reduce manual scoring effort, eliminate misplaced forms, standardize evaluation,
+    and deliver a consistent, professional report for every applicant.
+  </div>
+  <p>
+    The application runs entirely in the browser with no server or database required. All data remains on the
+    interviewer&rsquo;s device, and the system works online or offline after the page has loaded once.
+  </p>
+</div>
+
+<!-- ================= 2. BACKGROUND ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">2</span>Background &amp; Rationale</div>
+  <p>
+    Staff recruitment currently relies on several separate paper forms and spreadsheets. Each applicant must be
+    evaluated using:
+  </p>
+  <table>
+    <tr><th>Existing Instrument</th><th>Purpose</th></tr>
+    <tr><td>Personal Information Sheet</td><td>Captures basic details, contact information, and emergency contacts.</td></tr>
+    <tr><td>Family Background</td><td>Documents household composition and family member information.</td></tr>
+    <tr><td>Applicant Questionnaire</td><td>Guides the interviewer through 20 structured interview questions.</td></tr>
+    <tr><td>Temperament Test</td><td>Word-checklist profiling of four temperament types.</td></tr>
+    <tr><td>Emotional Intelligence Test</td><td>45-item Emotional Quotient (EQ-i) style inventory across five composite scales.</td></tr>
+  </table>
+  <p>This manual process presents several challenges:</p>
+  <ul>
+    <li><b>Time-consuming scoring</b> &mdash; temperament totals and EQ scores are tallied by hand and prone to error.</li>
+    <li><b>No standard report</b> &mdash; results are scattered across multiple sheets with no unified output.</li>
+    <li><b>Document loss</b> &mdash; physical forms can be misplaced during a hiring drive.</li>
+    <li><b>Inconsistent evaluation</b> &mdash; different interviewers may apply different scoring interpretations.</li>
+  </ul>
+  <p>
+    The proposed system addresses all of these concerns by digitizing the instruments, automating scoring, and
+    producing a single consolidated report in PDF format.
+  </p>
+</div>
+
+<!-- ================= 3. OBJECTIVES ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">3</span>Objectives</div>
+  <h2>3.1 General Objective</h2>
+  <p>
+    To develop an interactive, browser-based Applicant Assessment System that captures complete applicant
+    evaluation data and automatically generates a professional PDF report for every assessed applicant.
+  </p>
+  <h2>3.2 Specific Objectives</h2>
+  <ul>
+    <li>Provide an intuitive, guided interview workflow covering all existing assessment instruments.</li>
+    <li>Automate temperament and emotional intelligence scoring with built-in interpretation bands.</li>
+    <li>Generate a good-looking, downloadable PDF report summarizing the full assessment.</li>
+    <li>Support printing of the generated report for physical filing.</li>
+    <li>Preserve interview progress across page reloads using local browser storage.</li>
+    <li>Require no server, database, or internet connection during use.</li>
+  </ul>
+</div>
+
+<!-- ================= 4. SCOPE ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">4</span>Scope</div>
+  <h2>4.1 In Scope</h2>
+  <ul>
+    <li>Personal Information Sheet with interview header details.</li>
+    <li>Family Background form with dynamic row management.</li>
+    <li>Applicant Questionnaire (20 interview questions) with comments and suggestions fields.</li>
+    <li>Temperament Test with 4 categories and 80 selectable descriptor words.</li>
+    <li>Emotional Intelligence Test with 45 Likert-scale items across 5 composite scales.</li>
+    <li>Automated scoring, result interpretation, and a review summary.</li>
+    <li>Generation of a multi-page PDF report with download capability.</li>
+    <li>Local data persistence and a reset option for new assessments.</li>
+  </ul>
+  <h2>4.2 Out of Scope</h2>
+  <ul>
+    <li>Multi-user accounts, roles, and server-side storage.</li>
+    <li>Cloud sync, backup, or applicant database management.</li>
+    <li>Integration with external HRIS or applicant tracking systems.</li>
+    <li>Automated applicant ranking or decision-making.</li>
+  </ul>
+  <div class="callout gold"><b>Note:</b> These items are candidates for Phase 2 (see Section 11).</div>
+</div>
+
+<!-- ================= 5. FUNCTIONAL MODULES ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">5</span>Functional Modules</div>
+  <p>The system is organized into six assessment modules plus a report generation engine.</p>
+
+  <h2>5.1 Applicant Details</h2>
+  <p>
+    Captures personal information (name, date of birth, age, sex, civil status, religion, address, mobile,
+    email) together with emergency contact details and interview header fields (position applied for, date of
+    interview, interviewer). Sex and civil status use selectable pill controls.
+  </p>
+
+  <h2>5.2 Family Background</h2>
+  <p>
+    A dynamic table records father, mother, siblings, spouse or live-in partner, and children. Interviewers can
+    add or remove rows, and suggested relationships are provided via an autocomplete list.
+  </p>
+
+  <h2>5.3 Interview Questionnaire</h2>
+  <p>
+    Presents all 20 interview questions with answer areas, followed by interviewer Comments and Suggestions
+    fields.
+  </p>
+
+  <h2>5.4 Temperament Test</h2>
+  <p>
+    Four color-coded cards (Choleric, Sanguine, Melancholic, Phlegmatic) contain 20 descriptor words each.
+    Clicking a word toggles it, and a live count is shown per card. The highest-scoring type is automatically
+    flagged as the dominant temperament.
+  </p>
+
+  <h2>5.5 Emotional Intelligence Test</h2>
+  <p>
+    A 45-item inventory (5 scales &times; 9 items): Interpersonal Skills, Self-Actualization, Social
+    Responsibility, Impulse Control, and Reality Testing. Each item uses a five-point Likert scale. A live score
+    and interpretation badge update as items are answered.
+  </p>
+
+  <h2>5.6 Review &amp; Download</h2>
+  <p>
+    Displays summary statistics (dominant temperament, EQ rating, interview completion, family members listed)
+    and warnings for incomplete sections. From here the interviewer generates the PDF report or prints it.
+  </p>
+
+  <h2>5.7 Report Generation Engine</h2>
+  <p>
+    Builds a paginated A4 report containing the cover summary, personal information, family background, full
+    interview transcript, temperament results with interpretation, EQ scores per scale, overall EQ rating, and
+    signature lines. The report is rendered as an image and compiled into a downloadable PDF file.
+  </p>
+</div>
+
+<!-- ================= 6. SCORING METHODOLOGY ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">6</span>Scoring Methodology</div>
+
+  <h2>6.1 Temperament Test</h2>
+  <p>
+    Each selected descriptor word counts as 1 point for its category. The category with the highest total is the
+    applicant&rsquo;s dominant temperament.
+  </p>
+  <table>
+    <tr><th>Table</th><th>Temperament</th><th>Descriptors (20 per type)</th></tr>
+    <tr><td>1</td><td>Choleric &mdash; The Dominant Driver</td><td>Bold, goal-driven, competitive, takes charge, independent</td></tr>
+    <tr><td>2</td><td>Sanguine &mdash; The Enthusiastic Socializer</td><td>Energetic, friendly, creative, motivator, fun-loving</td></tr>
+    <tr><td>3</td><td>Melancholic &mdash; The Analytical Thinker</td><td>Detailed, precise, orderly, analytical, perfectionist</td></tr>
+    <tr><td>4</td><td>Phlegmatic &mdash; The Calm Peacemaker</td><td>Calm, patient, loyal, supportive, good listener</td></tr>
+  </table>
+  <table>
+    <tr><th>Score / 20</th><th>Level</th></tr>
+    <tr><td>15 &ndash; 20</td><td>Strong</td></tr>
+    <tr><td>10 &ndash; 14</td><td>Moderate</td></tr>
+    <tr><td>5 &ndash; 9</td><td>Mild</td></tr>
+    <tr><td>0 &ndash; 4</td><td>Minimal</td></tr>
+  </table>
+
+  <h2>6.2 Emotional Intelligence Test</h2>
+  <p>
+    Responses are mapped to a 5-point Likert scale where <b>1 = Strongly Agree</b> and <b>5 = Strongly
+    Disagree</b>. Each scale is scored by summing its nine items (maximum 45). Lower totals indicate stronger
+    emotional functioning.
+  </p>
+  <table>
+    <tr><th>Score Range</th><th>Interpretation</th><th>Meaning</th></tr>
+    <tr><td>0 &ndash; 15</td><td>EXCELLENT</td><td>Effectively Functioning</td></tr>
+    <tr><td>16 &ndash; 30</td><td>GOOD</td><td>Functioning</td></tr>
+    <tr><td>31 &ndash; 45</td><td>POOR</td><td>Needs Improvement</td></tr>
+  </table>
+  <p>
+    An <b>Overall EQ</b> score is derived from the sum of all five scales (maximum 225), applying the same
+    proportional bands (EXCELLENT 0&ndash;75, GOOD 76&ndash;150, POOR 151&ndash;225).
+  </p>
+</div>
+
+<!-- ================= 7. TECHNOLOGY ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">7</span>Technology &amp; Architecture</div>
+  <p>The system is a pure client-side web application &mdash; no server component is required.</p>
+
+  <h2>7.1 Technology Stack</h2>
+  <table>
+    <tr><th>Layer</th><th>Technology</th><th>Purpose</th></tr>
+    <tr><td>Markup</td><td>HTML5</td><td>Page structure and form controls</td></tr>
+    <tr><td>Styling</td><td>CSS3</td><td>Responsive layout and professional theme</td></tr>
+    <tr><td>Logic</td><td>Vanilla JavaScript (ES5+)</td><td>Wizard navigation, scoring, persistence</td></tr>
+    <tr><td>PDF</td><td>jsPDF 2.5.1</td><td>PDF document creation and download</td></tr>
+    <tr><td>Rendering</td><td>html2canvas 1.4.1</td><td>Report page capture for PDF export</td></tr>
+    <tr><td>Storage</td><td>localStorage</td><td>Local progress persistence</td></tr>
+  </table>
+  <p class="note">Libraries are vendored locally under <code>lib/</code>, so the application does not depend on a live CDN.</p>
+
+  <h2>7.2 Architecture</h2>
+  <ol>
+    <li><b>index.html</b> &mdash; shell containing the sidebar navigation, six step panels, and report canvas.</li>
+    <li><b>js/data.js</b> &mdash; central question bank: interview questions, temperament words, EQ items, and scoring bands.</li>
+    <li><b>js/app.js</b> &mdash; application controller: state management, rendering, validation, and wizard logic.</li>
+    <li><b>js/report.js</b> &mdash; report builder that paginates content into A4 pages and exports the PDF.</li>
+    <li><b>css/styles.css</b> &mdash; application and print styles.</li>
+  </ol>
+
+  <div class="callout navy"><b>Compatibility:</b> Works in current versions of Chrome, Edge, Firefox, and Safari on desktop. A demo mode (<code>?demo</code>) is available for previewing and documentation.</div>
+</div>
+
+<!-- ================= 8. WORKFLOW ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">8</span>System Workflow</div>
+  <p>The evaluation follows a linear, guided process. Interviewers may navigate freely between steps at any time; progress is preserved automatically.</p>
+  <ol>
+    <li><b>Start</b> &mdash; Open the application; a new blank assessment is ready (or a saved draft is restored).</li>
+    <li><b>Step 1 &mdash; Applicant Details:</b> Encode personal information and interview header fields.</li>
+    <li><b>Step 2 &mdash; Family Background:</b> Record family members; add rows as needed.</li>
+    <li><b>Step 3 &mdash; Interview Questionnaire:</b> Answer all 20 questions with the applicant; add comments and suggestions.</li>
+    <li><b>Step 4 &mdash; Temperament Test:</b> Select descriptor words; the system live-counts each category.</li>
+    <li><b>Step 5 &mdash; Emotional Intelligence:</b> Record responses for all 45 items; live scores update per scale.</li>
+    <li><b>Step 6 &mdash; Review:</b> Inspect summary statistics and completion warnings.</li>
+    <li><b>Generate:</b> Click <i>Download PDF Report</i>; the system renders each A4 page and saves the file.</li>
+    <li><b>File / Print:</b> Optionally print the report or the page using the built-in print view.</li>
+    <li><b>Reset:</b> Use <i>New</i> to clear data and start the next applicant.</li>
+  </ol>
+  <div class="callout"><b>Validation:</b> The report may be generated with incomplete sections, but warnings are shown and incomplete items are clearly marked as &ldquo;Not completed&rdquo; in the output.</div>
+</div>
+
+<!-- ================= 9. DATA & PRIVACY ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">9</span>Data Storage &amp; Privacy</div>
+  <ul>
+    <li>All entered data is stored <b>locally in the interviewer&rsquo;s browser</b> using the Web Storage (localStorage) API.</li>
+    <li>No applicant data is transmitted to any server, cloud service, or third party.</li>
+    <li>Assessment progress survives accidental page refreshes and tab closes.</li>
+    <li>The generated PDF report remains entirely in the interviewer&rsquo;s control and is downloaded directly to the device.</li>
+    <li>Clearing browser data for the site, or pressing the <b>New</b> button, permanently removes stored assessment data.</li>
+  </ul>
+  <div class="callout gold"><b>Caution:</b> Because storage is local, data is not shared between devices or browsers. Transfer reports by downloading the PDF. A shared workstation should be cleared after each assessment.</div>
+</div>
+
+<!-- ================= 10. BENEFITS ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">10</span>Benefits</div>
+  <table>
+    <tr><th>Area</th><th>Benefit</th></tr>
+    <tr><td>Efficiency</td><td>Eliminates manual tallying; scores and interpretations compute instantly.</td></tr>
+    <tr><td>Consistency</td><td>Standardized instruments and fixed scoring bands applied to every applicant.</td></tr>
+    <tr><td>Report Quality</td><td>One professional, branded PDF consolidates the entire evaluation.</td></tr>
+    <tr><td>Reliability</td><td>Auto-save protects work in progress against accidental refresh.</td></tr>
+    <tr><td>Cost</td><td>No server, license, or infrastructure costs; runs on any modern browser.</td></tr>
+    <tr><td>Training</td><td>Guided wizard requires minimal interviewer training.</td></tr>
+    <tr><td>Compliance</td><td>Printed and PDF outputs attach cleanly to personnel records.</td></tr>
+  </table>
+</div>
+
+<!-- ================= 11. LIMITATIONS ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">11</span>Limitations &amp; Future Enhancements</div>
+  <h2>11.1 Known Limitations</h2>
+  <ul>
+    <li>No multi-device synchronization or centralized storage.</li>
+    <li>No user authentication or audit trail.</li>
+    <li>PDF export relies on browser rendering; heavily styled output is best produced in desktop browsers.</li>
+  </ul>
+  <h2>11.2 Proposed Phase 2 Enhancements</h2>
+  <ul>
+    <li>Server-side applicant database with search and history.</li>
+    <li>Role-based access (HR, interviewer, manager) and electronic signatures.</li>
+    <li>Batch generation of reports and export to spreadsheets.</li>
+    <li>Localized interview questions and response language options.</li>
+    <li>Auto-ranking or candidate shortlist based on composite scores.</li>
+    <li>Integration with scheduling tools and e-mail notifications.</li>
+  </ul>
+</div>
+
+<!-- ================= 12. APPENDIX ================= -->
+<div class="page">
+  <div class="sec-head"><span class="no">12</span>Appendix &mdash; File Structure</div>
+  <table>
+    <tr><th>Path</th><th>Description</th></tr>
+    <tr><td>index.html</td><td>Application shell and step panels</td></tr>
+    <tr><td>css/styles.css</td><td>Application, report, and print styles</td></tr>
+    <tr><td>js/data.js</td><td>Question bank and scoring configuration</td></tr>
+    <tr><td>js/app.js</td><td>Wizard controller and application logic</td></tr>
+    <tr><td>js/report.js</td><td>Report builder and PDF generator</td></tr>
+    <tr><td>lib/jspdf.umd.min.js</td><td>jsPDF library (vendored)</td></tr>
+    <tr><td>lib/html2canvas.min.js</td><td>html2canvas library (vendored)</td></tr>
+    <tr><td>docs/style.css</td><td>Styles for this proposal and the user manual</td></tr>
+    <tr><td>*.docx / *.xlsx</td><td>Original assessment instruments used as source material</td></tr>
+  </table>
+  <div class="callout">
+    <b>Conclusion:</b> The Applicant Assessment System modernizes staff evaluation with a reliable, low-cost,
+    and user-friendly digital workflow. Approval is recommended to proceed with pilot deployment.
+  </div>
+</div>
+
+</body>
+</html>
+

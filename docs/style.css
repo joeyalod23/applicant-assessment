@@ -1,0 +1,118 @@
+@page { size: A4; margin: 0; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  color: #0f172a;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  background: #ffffff;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 16mm 15mm 18mm;
+  break-after: page;
+  position: relative;
+}
+.page:last-child { break-after: auto; }
+
+/* ---------- Cover ---------- */
+.cover {
+  height: 297mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  background: linear-gradient(160deg, #0f172a 0%, #134e4a 55%, #0f766e 100%);
+  color: #e2e8f0;
+  text-align: center;
+}
+.cover .band {
+  max-width: 170mm;
+  margin: 0 auto;
+  padding: 24mm 0;
+}
+.cover .logo {
+  width: 26mm; height: 26mm; margin: 0 auto 8mm;
+  background: #14b8a6; color: #06221f;
+  border-radius: 6mm; font-size: 30pt; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+.cover .kicker { font-size: 10pt; letter-spacing: 3px; text-transform: uppercase; color: #5eead4; margin-bottom: 6mm; }
+.cover h1 { font-size: 26pt; font-weight: 800; margin: 0 0 4mm; color: #ffffff; line-height: 1.2; }
+.cover .sub { font-size: 12pt; color: #94a3b8; margin-bottom: 10mm; }
+.cover .meta { font-size: 10.5pt; color: #cbd5e1; line-height: 1.9; }
+.cover .meta b { color: #5eead4; }
+.cover .foot {
+  position: absolute; bottom: 10mm; left: 0; right: 0;
+  font-size: 9pt; color: #64748b;
+}
+
+/* ---------- Headings ---------- */
+h1 { font-size: 15pt; margin: 0 0 2mm; }
+h2 { font-size: 12pt; margin: 5mm 0 2mm; }
+h3 { font-size: 10.5pt; margin: 4mm 0 1.5mm; }
+
+.doc-title {
+  font-size: 17pt; font-weight: 800; margin: 0 0 1mm;
+  color: #0f172a;
+}
+.doc-desc { color: #475569; font-size: 10.5pt; margin-bottom: 6mm; }
+
+.sec-head {
+  background: #0f172a; color: #fff; border-radius: 4mm;
+  padding: 3mm 5mm; font-size: 13pt; font-weight: 800; letter-spacing: 0.3px;
+  margin: 8mm 0 4mm;
+}
+.sec-head .no { color: #5eead4; margin-right: 3mm; }
+.sec-head.teal { background: #0f766e; }
+
+p { margin: 0 0 3mm; }
+ul, ol { margin: 0 0 3mm 6mm; padding: 0; }
+li { margin-bottom: 1.6mm; }
+
+/* ---------- Tables ---------- */
+table { width: 100%; border-collapse: collapse; margin: 3mm 0 4mm; font-size: 9.5pt; }
+th, td { border: 1px solid #cbd5e1; padding: 2mm 3mm; text-align: left; vertical-align: top; }
+th { background: #f1f5f9; font-weight: 700; }
+tr:nth-child(even) td { background: #fafbfc; }
+
+/* ---------- Callouts ---------- */
+.callout {
+  border-left: 4px solid #14b8a6; background: #f0fdfa;
+  padding: 3mm 4mm; border-radius: 2mm; margin: 3mm 0;
+  font-size: 9.5pt;
+}
+.callout.gold { border-left-color: #d97706; background: #fffbeb; }
+.callout.navy { border-left-color: #2563eb; background: #eff6ff; }
+
+.note { font-size: 8.5pt; color: #64748b; }
+
+/* ---------- Figures ---------- */
+figure { margin: 4mm 0 5mm; text-align: center; page-break-inside: avoid; }
+figure img {
+  width: 100%; max-height: 195mm; object-fit: contain;
+  border: 1px solid #e2e8f0; border-radius: 3mm;
+  background: #ffffff;
+}
+figcaption { font-size: 8.5pt; color: #64748b; margin-top: 1.5mm; font-style: italic; }
+
+/* ---------- Two column ---------- */
+.cols { display: flex; gap: 6mm; }
+.cols > div { flex: 1; }
+
+/* ---------- TOC ---------- */
+.toc { font-size: 10.5pt; }
+.toc .row { display: flex; justify-content: space-between; padding: 1.8mm 0; border-bottom: 1px dotted #cbd5e1; }
+.toc .row b { color: #0f766e; margin-right: 3mm; }
+
+.badge {
+  display: inline-block; background: #0f766e; color: #fff;
+  border-radius: 99px; padding: 0.6mm 3mm; font-size: 8pt; font-weight: 700; letter-spacing: 0.5px;
+}
+.badge.gold { background: #d97706; }
+.badge.navy { background: #2563eb; }
