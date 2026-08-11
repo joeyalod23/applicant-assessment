@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Applicant Assessment System</title>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">A</div>
+      <div>
+        <strong>Applicant Assessment</strong>
+        <small>Evaluation System</small>
+      </div>
+    </div>
+    <nav class="steps" id="steps">
+      <div class="step active" data-step="0">
+        <span class="step-num">1</span><span class="step-label">Applicant Details</span>
+      </div>
+      <div class="step" data-step="1">
+        <span class="step-num">2</span><span class="step-label">Family Background</span>
+      </div>
+      <div class="step" data-step="2">
+        <span class="step-num">3</span><span class="step-label">Interview Questionnaire</span>
+      </div>
+      <div class="step" data-step="3">
+        <span class="step-num">4</span><span class="step-label">Temperament Test</span>
+      </div>
+      <div class="step" data-step="4">
+        <span class="step-num">5</span><span class="step-label">Emotional Intelligence</span>
+      </div>
+      <div class="step" data-step="5">
+        <span class="step-num">6</span><span class="step-label">Review &amp; Download</span>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- ===== Main ===== -->
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1 id="page-title">Applicant Details</h1>
+        <div class="sub" id="page-sub">Personal information &amp; interview header details</div>
+      </div>
+      <button class="btn btn-danger" id="btn-reset" title="Start a new assessment">New</button>
+    </div>
+
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="progress-text" id="progress-text">Step 1 of 6</div>
+
+    <!-- ===== STEP 1: Personal info ===== -->
+    <section class="step-panel" data-panel="0">
+      <div class="card">
+        <div class="section-head"><div class="icon">&#128100;</div><h2>Personal Information Sheet</h2></div>
+        <p class="section-desc">This form is for the interviewer's reference and evaluation purposes.</p>
+        <div class="grid grid-2">
+          <div class="field-group">
+            <label>Full Name <span class="req">*</span></label>
+            <input type="text" id="fullName" autocomplete="off" placeholder="e.g. Juan Dela Cruz">
+          </div>
+          <div class="field-group">
+            <label>Position Applied For <span class="req">*</span></label>
+            <input type="text" id="position" autocomplete="off" placeholder="e.g. Customer Service Staff">
+          </div>
+          <div class="field-group">
+            <label>Date of Birth (MM/DD/YYYY)</label>
+            <input type="text" id="dob" placeholder="MM/DD/YYYY">
+          </div>
+          <div class="field-group">
+            <label>Age</label>
+            <input type="number" id="age" min="16" max="99" placeholder="e.g. 25">
+          </div>
+          <div class="field-group">
+            <label>Sex</label>
+            <div class="pill-row" data-pills="sex">
+              <span class="pill" data-val="Male">Male</span>
+              <span class="pill" data-val="Female">Female</span>
+              <span class="pill" data-val="Prefer not to say">Prefer not to say</span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Civil Status</label>
+            <div class="pill-row" data-pills="civilStatus">
+              <span class="pill" data-val="Single">Single</span>
+              <span class="pill" data-val="Married">Married</span>
+              <span class="pill" data-val="Widowed">Widowed</span>
+              <span class="pill" data-val="Separated">Separated</span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Religion</label>
+            <input type="text" id="religion" placeholder="e.g. Roman Catholic">
+          </div>
+          <div class="field-group">
+            <label>Present Address</label>
+            <input type="text" id="address" placeholder="Full address">
+          </div>
+          <div class="field-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="mobile" placeholder="09xx xxx xxxx">
+          </div>
+          <div class="field-group">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="name@email.com">
+          </div>
+          <div class="field-group">
+            <label>Emergency Contact Person</label>
+            <input type="text" id="emergencyName" placeholder="Contact name">
+          </div>
+          <div class="field-group">
+            <label>Relationship</label>
+            <input type="text" id="emergencyRel" placeholder="e.g. Mother">
+          </div>
+          <div class="field-group">
+            <label>Emergency Contact Number</label>
+            <input type="tel" id="emergencyNum" placeholder="Contact number">
+          </div>
+          <div class="field-group">
+            <label>Date of Interview</label>
+            <input type="date" id="interviewDate">
+          </div>
+          <div class="field-group">
+            <label>Interviewer</label>
+            <input type="text" id="interviewer" placeholder="Interviewer name">
+          </div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <span></span>
+        <button class="btn btn-primary" data-next="1">Next: Family Background &rarr;</button>
+      </div>
+    </section>
+
+    <!-- ===== STEP 2: Family ===== -->
+    <section class="step-panel" data-panel="1" style="display:none">
+      <div class="card">
+        <div class="section-head"><div class="icon">&#128106;</div><h2>Family Background</h2></div>
+        <p class="section-desc">Kindly add more rows if there are more than 2 siblings and children.</p>
+        <div class="family-wrap">
+          <table class="data" id="familyTable">
+            <thead>
+              <tr>
+                <th style="width:190px">Family Member</th>
+                <th>Name</th>
+                <th style="width:90px">Age</th>
+                <th>Occupation / Year / Grade</th>
+                <th style="width:120px">Gender</th>
+                <th style="width:44px"></th>
+              </tr>
+            </thead>
+            <tbody id="familyBody"></tbody>
+          </table>
+        </div>
+        <br>
+        <button class="btn btn-ghost" id="btn-add-family">+ Add Family Member</button>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-ghost" data-prev="0">&larr; Back</button>
+        <button class="btn btn-primary" data-next="2">Next: Interview &rarr;</button>
+      </div>
+    </section>
+
+    <!-- ===== STEP 3: Questionnaire ===== -->
+    <section class="step-panel" data-panel="2" style="display:none">
+      <div class="card">
+        <div class="section-head"><div class="icon">&#128172;</div><h2>Applicant Questionnaire</h2></div>
+        <p class="section-desc">Record the applicant's answers to the interview questions.</p>
+        <div id="qaList"></div>
+        <div class="grid grid-2" style="margin-top:18px">
+          <div class="field-group">
+            <label>Comments</label>
+            <textarea id="comments" placeholder="Interviewer comments..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Suggestions</label>
+            <textarea id="suggestions" placeholder="Interviewer suggestions..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-ghost" data-prev="1">&larr; Back</button>
+        <button class="btn btn-primary" data-next="3">Next: Temperament &rarr;</button>
+      </div>
+    </section>
+
+    <!-- ===== STEP 4: Temperament ===== -->
+    <section class="step-panel" data-panel="3" style="display:none">
+      <div class="card">
+        <div class="section-head"><div class="icon">&#127793;</div><h2>Temperament Test</h2></div>
+        <p class="section-desc">In each box, tap the words that best describe the applicant. The table scored highest reveals the dominant temperament.</p>
+        <div class="temp-grid" id="tempGrid"></div>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-ghost" data-prev="2">&larr; Back</button>
+        <button class="btn btn-primary" data-next="4">Next: Emotional Intelligence &rarr;</button>
+      </div>
+    </section>
+
+    <!-- ===== STEP 5: EQ ===== -->
+    <section class="step-panel" data-panel="4" style="display:none">
+      <div class="card">
+        <div class="section-head"><div class="icon">&#129504;</div><h2>Emotional Intelligence Test</h2></div>
+        <p class="section-desc">
+          Read each statement and choose the response that corresponds to the applicant's personal opinion.
+          Score per scale: <b>0&ndash;15</b> EXCELLENT (Effectively Functioning) &middot;
+          <b>16&ndash;30</b> GOOD (Functioning) &middot; <b>31&ndash;45</b> POOR (Needs Improvement).
+        </p>
+        <div id="eqList"></div>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-ghost" data-prev="3">&larr; Back</button>
+        <button class="btn btn-primary" data-next="5">Review Assessment &rarr;</button>
+      </div>
+    </section>
+
+    <!-- ===== STEP 6: Review ===== -->
+    <section class="step-panel" data-panel="5" style="display:none">
+      <div id="reviewWarnings"></div>
+      <div class="card">
+        <div class="section-head"><div class="icon">&#128221;</div><h2>Assessment Summary</h2></div>
+        <div class="grid grid-4" id="summaryStats"></div>
+      </div>
+      <div class="card" style="text-align:center; padding:30px">
+        <h2 style="margin-bottom:8px">Generate Report</h2>
+        <p class="section-desc">Creates a professional PDF report of the full assessment. Ready to download and print.</p>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap">
+          <button class="btn btn-gold" id="btn-pdf" style="font-size:16px; padding:14px 30px">&#11015;&nbsp; Download PDF Report</button>
+          <button class="btn btn-ghost" id="btn-print" style="font-size:16px; padding:14px 30px">&#128424;&nbsp; Print</button>
+        </div>
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-ghost" data-prev="4">&larr; Back</button>
+        <button class="btn btn-ghost" data-next="0">Edit from the start</button>
+      </div>
+    </section>
+
+    <div class="app-foot">Applicant Assessment System &middot; All data is stored locally in this browser.</div>
+  </main>
+</div>
+
+<!-- Report canvas (hidden until PDF generation) -->
+<div id="report"></div>
+
+<div class="toast" id="toast"></div>
+
+<script src="lib/html2canvas.min.js"></script>
+<script src="lib/jspdf.umd.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/report.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
