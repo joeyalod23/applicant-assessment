@@ -406,6 +406,8 @@ table.data input:focus, table.data select:focus { border-color: var(--teal-light
   transition: transform 0.3s ease; z-index: 9999;
 }
 .toast.show { transform: translateX(-50%) translateY(0); }
+.toast a { color: #ffd166; font-weight: 700; text-decoration: underline; }
+.toast a:hover { color: #ffe29a; }
 
 .spinner {
   display: inline-block; width: 16px; height: 16px; border-radius: 50%;

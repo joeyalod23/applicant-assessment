@@ -303,9 +303,11 @@ window.Report = (function () {
       pdf.addImage(img, 'JPEG', 0, 0, 210, 297);
       if (cb) cb(i + 1, pages.length);
     }
-    var fn = safeName(state.p.fullName) + ' - Assessment Report.pdf';
+    var nm = safeName(state.p.fullName);
+    var fn = (nm !== 'Applicant' ? 'Applicant - ' + nm : 'Applicant') + '.pdf';
     pdf.save(fn);
-    return fn;
+    var base64 = pdf.output('datauristring').split(',')[1] || '';
+    return { filename: fn, base64: base64 };
   }
 
   function buildForPrint(state) {

@@ -489,6 +489,26 @@
     return { rating: 'POOR' };
   }
 
+  /* ============ Cloud save ============ */
+  function sendToCloud(pdf) {
+    return Cloud.upload(STATE, pdf).then(function (res) {
+      var label = Cloud.savedAtLabel(pdf ? Cloud.payloadFor(STATE, pdf).savedAt : null);
+      var link = null;
+      if (res && res.pdf && res.pdf.link) link = res.pdf.link;
+      var msg = null;
+      if (res && res.ok !== false) {
+        msg = pdf
+          ? 'Saved to cloud: <b>' + esc(pdf.filename) + '</b>'
+          : 'Assessment data saved to cloud.';
+        if (res && res.message) msg += ' &middot; ' + esc(res.message);
+        if (link) msg += '<br><a href="' + esc(link) + '" target="_blank" rel="noopener">Open saved report</a>';
+        return { ok: true, label: label, msg: msg, link: link };
+      }
+      msg = (res && res.error) ? res.error : 'Cloud save failed.';
+      return { ok: false, label: label, msg: msg };
+    });
+  }
+
   /* ============ PDF ============ */
   function doPDF() {
     var btn = $('btn-pdf');
@@ -497,11 +517,19 @@
     btn.innerHTML = '<span class="spinner"></span>&nbsp; Generating PDF...';
     Report.downloadPDF(STATE, function (done, total) {
       btn.innerHTML = '<span class="spinner"></span>&nbsp; Rendering page ' + done + ' of ' + total + '...';
-    }).then(function (fn) {
-      toast('Report downloaded: <b>' + esc(fn) + '</b>', 3200);
+    }).then(function (out) {
+      btn.innerHTML = '<span class="spinner"></span>&nbsp; Saving to cloud...';
+      return sendToCloud({ filename: out.filename, base64: out.base64 });
+    }).then(function (ck) {
+      if (ck.ok) {
+        toast('Report downloaded &amp; ' + ck.msg, 8000);
+      } else {
+        console.warn(ck.msg);
+        toast('PDF downloaded, but cloud save failed: ' + ck.msg, 5600);
+      }
     }).catch(function (err) {
       console.error(err);
-      toast('Could not generate the PDF. See console for details.', 3600);
+      toast('Could not generate the report. See console for details.', 3600);
     }).finally(function () {
       btn.disabled = false;
       btn.innerHTML = orig;
@@ -510,6 +538,10 @@
 
   function doPrint() {
     Report.buildForPrint(STATE);
+    sendToCloud(null).then(function (ck) {
+      if (!ck.ok) console.warn(ck.msg);
+      else toast(ck.msg, 3200);
+    }).catch(function (err) { console.error(err); });
     window.print();
   }
 
